@@ -1,5 +1,15 @@
 #include "main.h"
 
+/**
+ * get_location - Find the full path of a command in the system's PATH.
+ *
+ * This function searches for the specified command in the directories listed
+ * in the PATH environment variable. It returns the full path to the command
+ * if found, or NULL if the command is not in the PATH.
+ *
+ * @param command The name of the command to locate.
+ * @return A pointer to the full path of the command if found; otherwise, NULL.
+ */
 char *get_location(char *command)
 {
 char *path, *path_copy, *path_token, *command_path;
