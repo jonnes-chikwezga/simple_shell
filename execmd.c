@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * execute_command - Execute a shell command.
+ *
+ * This function takes an array of command arguments and attempts to execute
+ * the specified command.
+ *
+ * @param command_args An array of strings representing the command and its arguments.
+ *                    It should be a NULL-terminated array.
+ */
 void execute_command(char **command_args)
 {
 char *command = NULL;
