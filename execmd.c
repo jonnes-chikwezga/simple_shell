@@ -1,29 +1,22 @@
 #include "main.h"
-
 /**
- * execute_command - Execute a shell command.
+ * execmd - Entry Point
+ * @argv: command arguments typed by user
  *
- * This function takes an array of command arguments and attempts to execute
- * the specified command.
- *
- * @param command_args An array of strings representing the command and its arguments.
- *                    It should be a NULL-terminated array.
  */
-void execute_command(char **command_args)
+void execmd(char **argv)
 {
-char *command = NULL;
-char *actual_command = NULL;
+char *command = NULL, *actual_command = NULL;
 
-if (command_args)
+if (argv)
 {
-command = command_args[0];
+command = argv[0];
 
-actual_command = find_command_path(command);
+actual_command = get_location(command);
 
-if (execve(actual_command, command_args, NULL) == -1)
+if (execve(actual_command, argv, NULL) == -1)
 {
-perror("shell: execution error");
+perror("Error:");
 }
 }
 }
-
