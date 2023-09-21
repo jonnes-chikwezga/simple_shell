@@ -1,4 +1,8 @@
+
 #include "main.h"
+
+int main(int argc, char **argv)
+{
 char *shell_prompt = "$ ";
 char *user_input = NULL;
 char *user_input_copy = NULL;
@@ -19,7 +23,7 @@ characters_read = getline(&user_input, &input_buffer_size, stdin);
 if (characters_read == -1)
 {
 printf("Exiting shell..\n");
-return -1;
+return (-1);
 }
 
 user_input[strcspn(user_input, "\n")] = '\0';
@@ -34,7 +38,7 @@ user_input_copy = malloc(sizeof(char) * characters_read);
 if (user_input_copy == NULL)
 {
 perror("tsh: memory allocation error");
-return -1;
+return (-1);
 }
 
 strcpy(user_input_copy, user_input);
@@ -64,5 +68,5 @@ execmd(argv);
 free(user_input);
 free(user_input_copy);
 
-return 0;
-
+return (0);
+}
