@@ -1,5 +1,7 @@
 #include "main.h"
 
+char *get_location(char *command)
+{
 char *path, *path_copy, *path_token, *command_path;
 int command_length, directory_length;
 struct stat file_info;
@@ -24,7 +26,7 @@ strcat(command_path, "\0");
 if (stat(command_path, &file_info) == 0)
 {
 free(path_copy);
-return command_path;
+return (command_path);
 }
 else
 {
@@ -38,8 +40,8 @@ free(path_copy);
 
 if (stat(command, &file_info) == 0)
 {
-return command;
+return (command);
 }
 
-return NULL;
-
+return (NULL);
+}
